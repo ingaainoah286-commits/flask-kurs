@@ -20,7 +20,21 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+          navn="Amir",
+          klasse="VG2",
+          fag="Informasjonsteknologi",
+          navn2="Aurora",
+          alder="17",
+          favorittspråk="norsk",
+          skole="Kuben",
+          #Oppgave6
+          poeng="50",
+    )   
+
+#Å tilsette navn som er lik elevnavn in til h1 i index.html, funka ikke :(
+
 
 
 
@@ -49,6 +63,10 @@ def profil():
 def prosjekter():
     return "Våre Prosjekter"
 
+@app.route("/fag")
+def fag():
+    fagliste = ["Python", "Flask", "HTML", "CSS"]
+    return render_template("fag.html", fag=fagliste)
 
 
 if __name__ == "__main__":
